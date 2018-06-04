@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">XSeries</string>
+    <string name="Bienvenido">Bienvenido</string>
+    <string name="usr">Correo</string>
+    <string name="pass">Contraseña</string>
+    <string name="login"> Login </string>
+    <string name="registro">Registro</string>
+    <string name="registrar">Registro de Usuario</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="example">user@example.com</string>
+    <string name="caracteres">       [6-15] caracteres</string>
+
+
+</resources>
