@@ -9,7 +9,8 @@
     <string name="Nombre">Nombre</string>
     <string name="Apellido">Apellido</string>
     <string name="example">user@example.com</string>
-    <string name="caracteres">       [6-15] caracteres</string>
+    <string name="caracteres">      _      [6-15] caracteres</string>
+
 
 
 </resources>

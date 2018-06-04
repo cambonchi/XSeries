@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         et_usr = (EditText)findViewById(R.id.et_user);
-        et_pass = (EditText)findViewById(R.id.et_pass);
+        et_pass = (EditText)findViewById(R.id.et_passw);
 
 
 
