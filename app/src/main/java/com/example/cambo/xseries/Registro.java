@@ -23,7 +23,7 @@ public class Registro extends AppCompatActivity {
         et_password = (EditText)findViewById(R.id.et_passw);
     }
 
-public void Registro(View view){
+ public void Registro(View view){
         String nombre = et_nombre.getText().toString();
         String apellido = et_appellido.getText().toString();
         String correo = et_correo.getText().toString();
@@ -35,16 +35,14 @@ public void Registro(View view){
         }else{
             Validar(correo,password);
 
-            Toast.makeText(this, "Registro en proceso", Toast.LENGTH_SHORT).show();
+
 
         }
 
 
     }
 
-
-    private void Validar(String usr, String pass){
-
+ private void Validar(String usr, String pass) {
         // Validar Correo
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -53,38 +51,18 @@ public void Registro(View view){
 
         // Validar Password
         Pattern patt = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,15})");
-        //("(?=\w*\d)](?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$");
         Matcher matcher2 = patt.matcher(pass);
 
+        //correo
+        if (mather.find() == false) {
+            Toast.makeText(this, "EEROR!! Correo@example.com", Toast.LENGTH_SHORT).show();
+        } else if (matcher2.find() == false){
+            Toast.makeText(this, "Password debe contener [MAYUS,minus,1234]   Ejemplo: pAssw0rd ", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Correo y password Validos ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Registro en proceso", Toast.LENGTH_SHORT).show();
 
-        if (mather.find() == true && matcher2.find() == true ) {
-            Toast.makeText(this, "Correo y Password Validos", Toast.LENGTH_LONG).show();
-            //System.out.println("El email ingresado es válido.");
-
-        } else {
-            Toast.makeText(this, "EEROR!! Correo o password Invalido", Toast.LENGTH_SHORT).show();
-            //System.out.println("El email ingresado es inválido.");
         }
-
-
-/*
-        if (matcher2.find() == true) {
-            Toast.makeText(this, "Password Valido", Toast.LENGTH_SHORT).show();
-            //System.out.println("Password es válido.");
-
-        } else {
-            Toast.makeText(this, "Password Invalido", Toast.LENGTH_SHORT).show();
-            //System.out.println("Password no es inválido.");
-        }*/
-
-
-
-
-
-
-
-
-
     }
 
 }

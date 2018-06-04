@@ -11,7 +11,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-
     EditText et_usr , et_pass;
 
     @Override
@@ -21,15 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         et_usr = (EditText)findViewById(R.id.et_user);
         et_pass = (EditText)findViewById(R.id.et_passw);
-
-
-
     }
 
     // Login Usuario
-
-
-
     public void Login (View view){
 
         String usuario = et_usr.getText().toString();
@@ -50,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             // Correo y contraseña ingresados
             Validar(usuario,password);
             Administrador(usuario,password);
+            Usuario(usuario,password);
 
 
             //Toast.makeText(this, "Inicio de Sesion en Proceso", Toast.LENGTH_SHORT).show();
@@ -119,6 +113,26 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Holi crayolii", Toast.LENGTH_SHORT).show();
             Intent adm = new Intent(this,Admin.class );
             startActivity(adm);
+
+        }
+
+
+
+    }
+
+    public void Usuario (String usr, String pass){
+        String nombre = "Ricardo";
+        String correo = "cambonchi@gmail.com";
+        String password = "Hola1234";
+
+        if(correo.equals(usr)&& password.equals(pass)){
+            Toast.makeText(this, "Bienvenido "+ nombre, Toast.LENGTH_SHORT).show();
+            Intent usu = new Intent(this,Usuario.class);
+            startActivity(usu);
+
+
+        }else{
+            Toast.makeText(this, "El usuario no existe", Toast.LENGTH_SHORT).show();
 
         }
 
