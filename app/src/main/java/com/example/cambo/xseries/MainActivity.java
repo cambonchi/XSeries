@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
             Intent usu = new Intent(this,Usuario.class);
             startActivity(usu);
 
-
         }else{
             Toast.makeText(this, "El usuario no existe", Toast.LENGTH_SHORT).show();
 
