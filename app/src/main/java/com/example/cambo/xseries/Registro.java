@@ -1,5 +1,7 @@
 package com.example.cambo.xseries;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,9 @@ public class Registro extends AppCompatActivity {
     }
 
  public void Registro(View view){
-        String nombre = et_nombre.getText().toString();
+
+
+     String nombre = et_nombre.getText().toString();
         String apellido = et_appellido.getText().toString();
         String correo = et_correo.getText().toString();
         String password = et_password.getText().toString();
@@ -33,17 +37,17 @@ public class Registro extends AppCompatActivity {
             Toast.makeText(this, "Todos los campos son obligatorios ", Toast.LENGTH_SHORT).show();
 
         }else{
-            Validar(correo,password);
-
-
+            //Validar y registrar en la Base de datos
+            Validar(correo,password,nombre,apellido);
 
         }
 
 
     }
 
- private void Validar(String usr, String pass) {
-        // Validar Correo
+ private void Validar(String usr, String pass, String nombre , String apellido ) {
+
+     // Validar Correo
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -59,10 +63,34 @@ public class Registro extends AppCompatActivity {
         } else if (matcher2.find() == false){
             Toast.makeText(this, "Password debe contener [MAYUS,minus,1234]   Ejemplo: pAssw0rd ", Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(this, "Correo y password Validos ", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Registro en proceso", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Correo y password Validos ", Toast.LENGTH_SHORT).show();
+
+
+            DataBase usuario = new DataBase(this,"usuarios",null, 1);
+            SQLiteDatabase BaseDeDatos = usuario.getWritableDatabase();
+            ContentValues registro = new ContentValues();
+            registro.put("nombre",nombre);
+            registro.put("apellido",apellido);
+            registro.put("correo",usr);
+            registro.put("contraseña",pass);
+            registro.put("saldo","100");
+            BaseDeDatos.insert("usuarios",null,registro );
+            BaseDeDatos.close();
+            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+            et_nombre.setText("");
+            et_appellido.setText("");
+            et_password.setText("");
+            et_correo.setText("");
+            et_password.setText("");
 
         }
     }
+
+
+
+
+
+
+
 
 }

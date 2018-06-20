@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="24dp"
         android:text="Administrador "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
